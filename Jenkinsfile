@@ -14,7 +14,7 @@ pipeline {
    stage('CheckOut') {
       steps {
         echo 'Checkout the source code from GitHub'
-        git branch: 'main', url: 'https://github.com/cbabu85/Banking-finance-project.git'
+        git branch: 'main', url: 'https://github.com/spencer11june/Banking.git'
             }
     }
     
@@ -33,7 +33,7 @@ pipeline {
     
     stage('Docker Image Creation') {
       steps {
-        sh 'docker build -t cbabu85/bankingfinance:3.0 .'
+        sh 'docker build -t spencer112/banking-project:1.0 .'
             }
     }
     stage('DockerLogin') {
@@ -46,13 +46,13 @@ pipeline {
   
     stage('Push Image to DockerHub') {
       steps {
-        sh 'docker push cbabu85/bankingfinance:3.0'
+        sh 'docker push spencer112/banking-project:1.0'
             }
     } */
         stage ('Configure Test-server with Terraform, Ansible and then Deploying'){
             steps {
                 dir('my-serverfiles'){
-                sh 'sudo chmod 600 BabucKeypair.pem'
+                sh 'sudo chmod 600 Spencer4.pem'
                 sh 'terraform init'
                 sh 'terraform validate'
                 sh 'terraform apply --auto-approve'
